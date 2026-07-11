@@ -1,21 +1,27 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
 import { Logger } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
-	const globalPrefix = 'api';
-	app.setGlobalPrefix(globalPrefix);
-	const port = process.env.PORT || 3000;
+
+	const config = app.get(ConfigService);
+	const logger = new Logger();
+
+	app.enableCors({
+		origin: config.getOrThrow<string>('HTTP_CORS').split(','),
+		credentials: true,
+	});
+
+	const port = config.getOrThrow<number>('HTTP_PORT');
+	const host = config.getOrThrow<string>('HTTP_HOST');
+
 	await app.listen(port);
-	Logger.log(
-		`🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
-	);
+
+	logger.log(`🚀 Gateway Started: ${host}`);
+	logger.log(`📝 Swagger Docs: ${host}/docs`);
 }
 
-bootstrap();
+bootstrap().then();
