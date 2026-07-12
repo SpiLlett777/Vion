@@ -45,3 +45,8 @@ Thumbs.db
 .claude/settings.local.json
 
 .angular
+
+# env files
+.env
+.env.*
+!.env.example
