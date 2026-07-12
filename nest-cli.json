@@ -1,0 +1,25 @@
+{
+  "projects": {
+    "api/auth/data-access": {
+      "type": "library",
+      "root": "libs/api/auth/data-access",
+      "entryFile": "index",
+      "sourceRoot": "libs/api/auth/data-access/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/api/auth/data-access/tsconfig.lib.json"
+      }
+    },
+    "data-access": {
+      "type": "library",
+      "root": "libs/data-access",
+      "entryFile": "index",
+      "sourceRoot": "libs/data-access/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/data-access/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
+}
