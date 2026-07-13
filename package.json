@@ -9,7 +9,8 @@
 	"license": "MIT",
 	"scripts": {
 		"start:web": "nx run web:serve",
-		"start:gateway": "nx run gateway:serve"
+		"start:gateway": "nx run gateway:serve",
+		"proto-generate": "node .\\tools\\scripts\\compile-proto.js"
 	},
 	"private": true,
 	"devDependencies": {
