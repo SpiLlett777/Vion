@@ -4,8 +4,12 @@ import { ApiOperation } from '@nestjs/swagger';
 import { SendOtpRequest } from '@vion/api/contracts';
 import { HttpStatusCode } from 'axios';
 
+import { AuthClientGrpc } from './auth.grpc';
+
 @Controller('auth')
-export class AuthController {
+export class AuthRestController {
+	constructor(private readonly client: AuthClientGrpc) {}
+
 	@ApiOperation({
 		summary: 'Send OTP code',
 		description: 'Sends a verification code to the user phone number or email',
@@ -15,6 +19,6 @@ export class AuthController {
 	async sendOtp(@Body() dto: SendOtpRequest) {
 		console.log('DATA: ', dto);
 
-		return { ok: true };
+		return this.client.sendOtp(dto);
 	}
 }

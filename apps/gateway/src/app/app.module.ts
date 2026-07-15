@@ -3,6 +3,9 @@ import { ConfigModule } from '@nestjs/config';
 
 import { AuthRestModule } from '@vion/auth/feature-rest';
 
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+
 @Module({
 	imports: [
 		ConfigModule.forRoot({
@@ -10,7 +13,7 @@ import { AuthRestModule } from '@vion/auth/feature-rest';
 		}),
 		AuthRestModule,
 	],
-	controllers: [],
-	providers: [],
+	controllers: [AppController],
+	providers: [AppService],
 })
 export class AppModule {}

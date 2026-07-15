@@ -10,6 +10,8 @@
 	"scripts": {
 		"start:web": "nx run web:serve",
 		"start:gateway": "nx run gateway:serve",
+		"start:auth": "nx run auth:serve",
+		"start:all": "nx run-many -t serve --all",
 		"proto-generate": "node .\\tools\\scripts\\compile-proto.js"
 	},
 	"private": true,

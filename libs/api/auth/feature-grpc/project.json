@@ -1,0 +1,9 @@
+{
+	"name": "feature-grpc",
+	"$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "libs/api/auth/feature-grpc/src",
+	"projectType": "library",
+	"tags": [],
+	"// targets": "to see all targets run: nx show project feature-grpc --web",
+	"targets": {}
+}
