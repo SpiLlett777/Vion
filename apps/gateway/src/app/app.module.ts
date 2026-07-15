@@ -1,19 +1,16 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { AuthModule } from '@vion/auth/data-access';
-
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AuthRestModule } from '@vion/auth/feature-rest';
 
 @Module({
 	imports: [
 		ConfigModule.forRoot({
 			isGlobal: true,
 		}),
-		AuthModule,
+		AuthRestModule,
 	],
-	controllers: [AppController],
-	providers: [AppService],
+	controllers: [],
+	providers: [],
 })
 export class AppModule {}

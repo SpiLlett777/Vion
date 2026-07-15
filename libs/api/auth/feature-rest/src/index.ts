@@ -1,1 +1,1 @@
-export { AuthController } from './lib/auth-rest.controller';
+export { AuthRestModule } from './lib/auth-rest.module';
