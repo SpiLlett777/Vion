@@ -9,6 +9,13 @@ generator client {
   moduleFormat = "cjs"
 }
 
+generator nestjsDto {
+  provider                        = "prisma-generator-nestjs-dto"
+  output                          = "../../../libs/shared/src/lib/contracts/src/lib"
+  outputToNestJsResourceStructure = "false"
+  exportRelationModifierClasses   = "true"
+}
+
 datasource db {
   provider = "postgresql"
 }
