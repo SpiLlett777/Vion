@@ -1,4 +1,4 @@
-import { SendOtpRequest } from '@vion/auth/util-contracts';
+import { SendOtpRequest } from '@vion/api/contracts';
 import {
 	ValidationArguments,
 	ValidatorConstraint,

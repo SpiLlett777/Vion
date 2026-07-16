@@ -4,7 +4,7 @@
 		"rootDir": ".",
 		"sourceMap": true,
 		"declaration": false,
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"importHelpers": true,
@@ -15,8 +15,15 @@
 		"skipDefaultLibCheck": true,
 		"paths": {
 			"@vion/shared/*": ["./libs/shared/src/lib/*"],
-			"@vion/auth/*": ["./libs/api/auth/*/src/index.ts"],
-			"@vion/api/shared/*": ["./libs/api/shared/*/src/index.ts"]
+			"@vion/auth/data-access": ["./libs/api/auth/data-access/src/index.ts"],
+			"@vion/auth/feature-rest": ["./libs/api/auth/feature-rest/src/index.ts"],
+			"@vion/api/shared/validators": [
+				"./libs/api/shared/validators/src/index.ts"
+			],
+			"@vion/proto": ["./libs/api/shared/proto/src/index.ts"],
+			"@vion/auth-grpc": ["./libs/api/auth/auth-grpc/src/index.ts"],
+			"@vion/feature-grpc": ["./libs/api/auth/feature-grpc/src/index.ts"],
+			"@vion/api/contracts": ["./libs/api/contracts/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
