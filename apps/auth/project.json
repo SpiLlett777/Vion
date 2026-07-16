@@ -71,6 +71,12 @@
 					"buildTarget": "auth:build:production"
 				}
 			}
+		},
+		"db-push": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "npx prisma db push --schema=apps/auth/prisma/schema.prisma --config=apps/auth/prisma.config.ts"
+			}
 		}
 	},
 	"tags": []
