@@ -12,6 +12,6 @@ export class AuthGrpcController {
 	async sendOtp(data: SendOtpRequest): Promise<SendOtpResponse> {
 		console.log(`Incoming OTP request: `, data);
 
-		return { ok: true };
+		return await this.authService.sendOtp(data);
 	}
 }

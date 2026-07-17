@@ -12,7 +12,7 @@
  */
 
 import * as runtime from "@prisma/client/runtime/client"
-import type * as Prisma from "./prismaNamespace.js"
+import type * as Prisma from "./prismaNamespace"
 
 
 const config: runtime.GetPrismaClientConfig = {
@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.8.0",
   "engineVersion": "3c6e192761c0362d496ed980de936e2f3cebcd3a",
   "activeProvider": "postgresql",
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Get a free hosted Postgres database in seconds: `npx create-db`\n\ngenerator client {\n  provider     = \"prisma-client\"\n  output       = \"./generated\"\n  moduleFormat = \"cjs\"\n}\n\ngenerator nestjsDto {\n  provider                        = \"prisma-generator-nestjs-dto\"\n  output                          = \"../../../libs/shared/src/lib/contracts/src/lib\"\n  outputToNestJsResourceStructure = \"false\"\n  exportRelationModifierClasses   = \"true\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Account {\n  id String @id @default(nanoid())\n\n  phone String? @unique\n  email String? @unique\n\n  isPhoneVerified Boolean @default(false) @map(\"is_phone_verified\")\n  isEmailVerified Boolean @default(false) @map(\"is_email_verified\")\n\n  createdAt DateTime @default(now()) @map(\"created_at\")\n  updatedAt DateTime @updatedAt @map(\"updated_at\")\n\n  @@map(\"accounts\")\n}\n",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Get a free hosted Postgres database in seconds: `npx create-db`\n\ngenerator client {\n  provider     = \"prisma-client\"\n  output       = \"./generated\"\n  moduleFormat = \"cjs\"\n}\n\ngenerator nestjsDto {\n  provider                        = \"prisma-generator-nestjs-dto\"\n  output                          = \"../../../../../../shared/src/lib/contracts/src/lib\"\n  outputToNestJsResourceStructure = \"false\"\n  exportRelationModifierClasses   = \"true\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Account {\n  id String @id @default(nanoid())\n\n  phone String? @unique\n  email String? @unique\n\n  isPhoneVerified Boolean @default(false) @map(\"is_phone_verified\")\n  isEmailVerified Boolean @default(false) @map(\"is_email_verified\")\n\n  createdAt DateTime @default(now()) @map(\"created_at\")\n  updatedAt DateTime @updatedAt @map(\"updated_at\")\n\n  @@map(\"accounts\")\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},

@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
-import { AuthDataAccessModule } from '@vion/auth/data-access';
 import { join } from 'path';
 
 import { AuthRestController } from './auth-rest.controller';
@@ -25,7 +24,6 @@ import { AuthClientGrpc } from './auth.grpc';
 				inject: [ConfigService],
 			},
 		]),
-		AuthDataAccessModule,
 	],
 	controllers: [AuthRestController],
 	providers: [AuthClientGrpc],

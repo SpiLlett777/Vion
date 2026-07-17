@@ -75,7 +75,13 @@
 		"db-push": {
 			"executor": "nx:run-commands",
 			"options": {
-				"command": "npx prisma db push --schema=apps/auth/prisma/schema.prisma --config=apps/auth/prisma.config.ts"
+				"command": "npx prisma db push --schema=libs/api/auth/data-access/src/lib/prisma/schema.prisma --config=libs/api/auth/data-access/src/lib/prisma/prisma.config.ts"
+			}
+		},
+		"prisma-generate": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "npx prisma generate --schema=libs/api/auth/data-access/src/lib/prisma/schema.prisma"
 			}
 		}
 	},
