@@ -2,9 +2,8 @@ import { Body, Controller, HttpCode, Post } from '@nestjs/common';
 import { ApiOperation } from '@nestjs/swagger';
 
 import { SendOtpRequest } from '@vion/api/contracts';
+import { AuthClientGrpc } from '@vion/auth/data-access';
 import { HttpStatusCode } from 'axios';
-
-import { AuthClientGrpc } from './auth.grpc';
 
 @Controller('auth')
 export class AuthRestController {

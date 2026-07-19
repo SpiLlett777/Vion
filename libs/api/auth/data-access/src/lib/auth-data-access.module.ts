@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { PrismaModule, RedisModule } from '../infrastructure';
-
-import { AuthRepository } from './auth.repository';
-import { AuthService } from './auth.service';
+import { AuthRepository } from './auth/auth.repository';
+import { AuthService } from './auth/auth.service';
+import { PrismaModule, RedisModule } from './infrastructure';
 
 @Module({
 	imports: [PrismaModule, RedisModule],

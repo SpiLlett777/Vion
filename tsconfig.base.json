@@ -25,7 +25,8 @@
 			"@vion/auth-grpc": ["./libs/api/auth/auth-grpc/src/index.ts"],
 			"@vion/feature-grpc": ["./libs/api/auth/feature-grpc/src/index.ts"],
 			"@vion/api/contracts": ["./libs/api/contracts/src/index.ts"],
-			"@vion/contracts": ["./libs/shared/src/lib/contracts/src/index.ts"]
+			"@vion/contracts": ["./libs/shared/src/lib/contracts/src/index.ts"],
+			"@vion/feature": ["./libs/api/auth/feature/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]
