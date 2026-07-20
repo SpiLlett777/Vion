@@ -1,3 +1,5 @@
+name: vion
+
 services:
   postgres:
     container_name: postgres
