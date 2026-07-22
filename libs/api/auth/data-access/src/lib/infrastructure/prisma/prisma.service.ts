@@ -7,7 +7,7 @@ import {
 import { ConfigService } from '@nestjs/config';
 
 import { PrismaPg } from '@prisma/adapter-pg';
-import { AllConfigs } from '@vion/api/contracts';
+import type { AllConfigs } from '@vion/api/contracts';
 
 import { PrismaClient } from '../../prisma/generated/client';
 
