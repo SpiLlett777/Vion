@@ -3,3 +3,4 @@ export * from './lib/proto';
 export * from './lib/mappers';
 export * from './lib/filters';
 export * from './lib/validators';
+export * from './lib/configs';
