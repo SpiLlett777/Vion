@@ -1,3 +1,1 @@
-import { SendOtpRequest } from './requests/';
-
-export { SendOtpRequest };
+export * from './requests';

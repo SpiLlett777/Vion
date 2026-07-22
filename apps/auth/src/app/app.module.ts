@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { grpcEnv } from '@vion/api/shared/utils';
+import { databaseEnv, grpcEnv } from '@vion/api/shared/utils';
 import { AuthFeatureModule } from '@vion/auth/feature';
 
 @Module({
@@ -9,7 +9,7 @@ import { AuthFeatureModule } from '@vion/auth/feature';
 		ConfigModule.forRoot({
 			isGlobal: true,
 			envFilePath: 'apps/auth/.env',
-			load: [grpcEnv],
+			load: [databaseEnv, grpcEnv],
 		}),
 		AuthFeatureModule,
 	],
