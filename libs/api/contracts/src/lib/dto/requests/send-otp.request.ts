@@ -1,7 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-import { IdentifierValidator } from '@vion/api/shared/utils';
 import { IsEnum, IsString, Validate } from 'class-validator';
+
+import { IdentifierValidator } from '../../validators';
 
 export class SendOtpRequest {
 	@ApiProperty({

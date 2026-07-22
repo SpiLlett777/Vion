@@ -1,9 +1,10 @@
-import { SendOtpRequest } from '@vion/api/contracts';
 import {
 	ValidationArguments,
 	ValidatorConstraint,
 	ValidatorConstraintInterface,
 } from 'class-validator';
+
+import { SendOtpRequest } from '../dto';
 
 @ValidatorConstraint({ name: 'IdentifierValidator', async: false })
 export class IdentifierValidator implements ValidatorConstraintInterface {

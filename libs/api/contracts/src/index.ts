@@ -1,2 +1,2 @@
-export * from './lib/dto/requests';
-// export * from './lib/dto/responses'
+export * from './lib/dto';
+export * from './lib/validators';
