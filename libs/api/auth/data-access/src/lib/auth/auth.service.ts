@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { RpcException } from '@nestjs/microservices';
 
-import { SendOtpRequest, VerifyOtpRequest } from '@vion/proto';
+import { SendOtpRequest, VerifyOtpRequest } from '@vion/api/shared/utils';
 
 import { OtpService } from '../otp/otp.service';
 import { Account } from '../prisma/generated/client';

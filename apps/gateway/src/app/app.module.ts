@@ -3,7 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
 import { AuthClientGrpc } from '@vion/auth/data-access';
-import { AuthRestController } from '@vion/feature';
+import { AuthRestController } from '@vion/auth/feature';
 import { join } from 'path';
 
 import { AppController } from './app.controller';

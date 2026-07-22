@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { AuthFeatureModule } from '@vion/feature';
+import { AuthFeatureModule } from '@vion/auth/feature';
 
 @Module({
 	imports: [

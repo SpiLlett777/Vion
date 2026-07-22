@@ -13,7 +13,7 @@ const PROTO_ROOT = path.join(
 	__dirname,
 	'..',
 	'..',
-	'libs/api/shared/proto/src/lib'
+	'libs/api/shared/utils/src/lib/proto'
 );
 
 const protoFiles = glob.sync(`${PROTO_ROOT}/**/*.proto`);

@@ -15,18 +15,17 @@
 		"skipLibCheck": true,
 		"skipDefaultLibCheck": true,
 		"paths": {
-			"@vion/shared/*": ["./libs/shared/src/lib/*"],
+			// Auth
 			"@vion/auth/data-access": ["./libs/api/auth/data-access/src/index.ts"],
-			"@vion/auth/feature-rest": ["./libs/api/auth/feature-rest/src/index.ts"],
-			"@vion/api/shared/validators": [
-				"./libs/api/shared/validators/src/index.ts"
-			],
-			"@vion/proto": ["./libs/api/shared/proto/src/index.ts"],
-			"@vion/auth-grpc": ["./libs/api/auth/auth-grpc/src/index.ts"],
-			"@vion/feature-grpc": ["./libs/api/auth/feature-grpc/src/index.ts"],
+			"@vion/auth/feature": ["./libs/api/auth/feature/src/index.ts"],
+
+			// Backend Shared
+			"@vion/api/shared/utils": ["./libs/api/shared/utils/src/index.ts"],
 			"@vion/api/contracts": ["./libs/api/contracts/src/index.ts"],
-			"@vion/contracts": ["./libs/shared/src/lib/contracts/src/index.ts"],
-			"@vion/feature": ["./libs/api/auth/feature/src/index.ts"]
+
+			// Global Shared
+			"@vion/shared/contracts": ["./libs/shared/contracts/src/index.ts"],
+			"@vion/shared/dto": ["./libs/shared/dto/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

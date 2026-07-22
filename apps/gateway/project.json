@@ -16,7 +16,7 @@
 					"apps/gateway/src/assets",
 					{
 						"glob": "**/*.proto",
-						"input": "libs/api/shared/proto/src/lib/auth",
+						"input": "libs/api/shared/utils/src/lib/proto/auth",
 						"output": "proto"
 					}
 				]
