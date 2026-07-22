@@ -5,6 +5,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { AppModule } from './app/app.module';
 import { getCorsConfig, getValidationPipeConfig } from './configs/';
+import { GrpcExceptionFilter } from '@vion/api/shared/utils';
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule);
@@ -13,6 +14,8 @@ async function bootstrap() {
 	const logger = new Logger();
 
 	app.useGlobalPipes(new ValidationPipe(getValidationPipeConfig()));
+
+	app.useGlobalFilters(new GrpcExceptionFilter())
 
 	app.enableCors(getCorsConfig(config));
 
