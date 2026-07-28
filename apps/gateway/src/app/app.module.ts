@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
+import { PROTO_PATHS } from '@vion/api/shared/utils';
 import { AuthClientGrpc } from '@vion/auth/data-access';
 import { AuthRestController } from '@vion/auth/feature';
 import { join } from 'path';
@@ -22,7 +23,7 @@ import { AppService } from './app.service';
 					transport: Transport.GRPC,
 					options: {
 						package: 'auth.v1',
-						protoPath: join(__dirname, 'proto/auth.proto'),
+						protoPath: PROTO_PATHS.AUTH,
 						url: configService.getOrThrow<string>('AUTH_GRPC_URL'),
 					},
 				}),

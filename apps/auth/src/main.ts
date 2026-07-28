@@ -3,6 +3,7 @@ import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
 import type { AllConfigs } from '@vion/api/contracts';
+import { PROTO_PATHS } from '@vion/api/shared/utils';
 import { join } from 'path';
 
 import { AppModule } from './app/app.module';
@@ -21,7 +22,7 @@ async function bootstrap() {
 		transport: Transport.GRPC,
 		options: {
 			package: 'auth.v1',
-			protoPath: join(__dirname, 'proto/auth.proto'),
+			protoPath: PROTO_PATHS.AUTH,
 			url: url,
 			loader: {
 				keepCase: false,
