@@ -4,7 +4,7 @@ import { RedisConfig, RedisValidator } from '@vion/api/contracts';
 
 import { validateEnv } from '../../validators';
 
-export const redisEnv = registerAs<RedisConfig>('database', () => {
+export const redisEnv = registerAs<RedisConfig>('redis', () => {
 	const validated = validateEnv(process.env, RedisValidator);
 
 	return {

@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { RpcException } from '@nestjs/microservices';
 
+import { PassportService, type TokenPayload } from '@vion/api/auth-passport';
+import type { AllConfigs } from '@vion/api/contracts';
 import {
 	RpcStatus,
 	SendOtpRequest,
@@ -14,10 +17,22 @@ import { AuthRepository } from './auth.repository';
 
 @Injectable()
 export class AuthService {
+	private readonly ACCESS_TOKEN_TTL: number;
+	private readonly REFRESH_TOKEN_TTL: number;
+
 	constructor(
+		private readonly configService: ConfigService<AllConfigs>,
 		private readonly authRepository: AuthRepository,
-		private readonly otpService: OtpService
-	) {}
+		private readonly otpService: OtpService,
+		private readonly passportService: PassportService
+	) {
+		this.ACCESS_TOKEN_TTL = <number>configService.get('passport.accessTtl', {
+			infer: true,
+		});
+		this.REFRESH_TOKEN_TTL = <number>configService.get('passport.refreshTtl', {
+			infer: true,
+		});
+	}
 
 	async sendOtp(data: SendOtpRequest) {
 		const { identifier, type } = data;
@@ -71,9 +86,22 @@ export class AuthService {
 				isEmailVerified: true,
 			});
 
-		return {
-			accessToken: 'rjlksadjdrklasdklrja',
-			refreshToken: 'alkdajlkflskdflaksdjf',
-		};
+		return this.generateTokens(account.id);
+	}
+
+	private generateTokens(userId: string) {
+		const payload: TokenPayload = { sub: userId };
+
+		const accessToken = this.passportService.generate(
+			String(payload.sub),
+			this.ACCESS_TOKEN_TTL
+		);
+
+		const refreshToken = this.passportService.generate(
+			String(payload.sub),
+			this.REFRESH_TOKEN_TTL
+		);
+
+		return { accessToken: accessToken, refreshToken: refreshToken };
 	}
 }

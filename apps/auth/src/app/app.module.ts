@@ -1,17 +1,29 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 
-import { databaseEnv, grpcEnv, redisEnv } from '@vion/api/shared/utils';
+import { PassportModule } from '@vion/api/auth-passport';
+import {
+	databaseEnv,
+	grpcEnv,
+	passportEnv,
+	redisEnv,
+} from '@vion/api/shared/utils';
 import { AuthFeatureModule } from '@vion/auth/feature';
+
+import { getPassportConfig } from '../loaders';
 
 @Module({
 	imports: [
 		ConfigModule.forRoot({
 			isGlobal: true,
 			envFilePath: 'apps/auth/.env',
-			load: [databaseEnv, grpcEnv, redisEnv],
+			load: [databaseEnv, grpcEnv, passportEnv, redisEnv],
 		}),
 		AuthFeatureModule,
+		PassportModule.registerAsync({
+			useFactory: getPassportConfig,
+			inject: [ConfigService],
+		}),
 	],
 })
 export class AppModule {}
