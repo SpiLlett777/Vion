@@ -6,9 +6,8 @@ import { PassportModule } from '@vion/api-shared/auth-passport';
 import { AuthClientGrpc } from '@vion/api/auth/data-access';
 import { AuthRestController } from '@vion/api/auth/feature';
 import { PROTO_PATHS } from '@vion/api/shared/utils';
-import { AuthClientGrpc } from '@vion/auth/data-access';
-import { AuthRestController } from '@vion/auth/feature';
-import { join } from 'path';
+
+import { getPassportConfig } from '../configs';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -33,6 +32,10 @@ import { AppService } from './app.service';
 				inject: [ConfigService],
 			},
 		]),
+		PassportModule.registerAsync({
+			useFactory: getPassportConfig,
+			inject: [ConfigService],
+		}),
 	],
 	controllers: [AppController, AuthRestController],
 	providers: [AppService, AuthClientGrpc],
