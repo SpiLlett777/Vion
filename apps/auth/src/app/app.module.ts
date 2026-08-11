@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
-import { PassportModule } from '@vion/api/auth-passport';
+import { PassportModule } from '@vion/api-shared/auth-passport';
+import { AuthFeatureModule } from '@vion/api/auth/feature';
 import {
 	databaseEnv,
 	grpcEnv,
 	passportEnv,
 	redisEnv,
 } from '@vion/api/shared/utils';
-import { AuthFeatureModule } from '@vion/auth/feature';
 
 import { getPassportConfig } from '../loaders';
 

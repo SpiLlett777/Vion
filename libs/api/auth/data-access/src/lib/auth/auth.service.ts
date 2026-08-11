@@ -2,7 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { RpcException } from '@nestjs/microservices';
 
-import { PassportService, type TokenPayload } from '@vion/api/auth-passport';
+import {
+	PassportService,
+	type TokenPayload,
+} from '@vion/api-shared/auth-passport';
 import type { AllConfigs } from '@vion/api/contracts';
 import {
 	type RefreshRequest,

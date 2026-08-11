@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
+import { PassportModule } from '@vion/api-shared/auth-passport';
+import { AuthClientGrpc } from '@vion/api/auth/data-access';
+import { AuthRestController } from '@vion/api/auth/feature';
 import { PROTO_PATHS } from '@vion/api/shared/utils';
 import { AuthClientGrpc } from '@vion/auth/data-access';
 import { AuthRestController } from '@vion/auth/feature';
