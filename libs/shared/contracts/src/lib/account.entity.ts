@@ -1,4 +1,5 @@
 
+import {Role} from '@prisma/client'
 import {ApiProperty} from '@nestjs/swagger'
 
 
@@ -8,6 +9,10 @@ phone: string  | null;
 email: string  | null;
 isPhoneVerified: boolean ;
 isEmailVerified: boolean ;
+@ApiProperty({
+  enum: Role,
+})
+role: Role ;
 @ApiProperty({
   type: `string`,
   format: `date-time`,
