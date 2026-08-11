@@ -4,3 +4,4 @@ export * from './lib/mappers';
 export * from './lib/filters';
 export * from './lib/validators';
 export * from './lib/configs';
+export * from './lib/converters';

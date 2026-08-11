@@ -40,7 +40,7 @@ protoFiles.forEach(file => {
 		`-I ${dirName}`,
 		`${relativeProtoPath}`,
 		`--ts_proto_out=${dirName}`,
-		'--ts_proto_opt=nestJs=true,package=omit',
+		'--ts_proto_opt=nestJs=true,package=omit,exportCommonSymbols=false',
 	].join(' ');
 
 	try {
