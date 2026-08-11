@@ -5,9 +5,10 @@ import { RpcException } from '@nestjs/microservices';
 import { PassportService, type TokenPayload } from '@vion/api/auth-passport';
 import type { AllConfigs } from '@vion/api/contracts';
 import {
+	type RefreshRequest,
 	RpcStatus,
-	SendOtpRequest,
-	VerifyOtpRequest,
+	type SendOtpRequest,
+	type VerifyOtpRequest,
 } from '@vion/api/shared/utils';
 
 import { OtpService } from '../otp/otp.service';
@@ -87,6 +88,20 @@ export class AuthService {
 			});
 
 		return this.generateTokens(account.id);
+	}
+
+	async refresh(data: RefreshRequest) {
+		const { refreshToken } = data;
+
+		const result = this.passportService.verify(refreshToken);
+
+		if (!result.valid)
+			throw new RpcException({
+				code: RpcStatus.UNAUTHENTICATED,
+				details: result.reason,
+			});
+
+		return this.generateTokens(<string>result.userId);
 	}
 
 	private generateTokens(userId: string) {

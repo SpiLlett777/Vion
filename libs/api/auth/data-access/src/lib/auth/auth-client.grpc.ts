@@ -3,8 +3,9 @@ import type { ClientGrpc } from '@nestjs/microservices';
 
 import {
 	AuthServiceClient,
-	SendOtpRequest,
-	VerifyOtpRequest,
+	type RefreshRequest,
+	type SendOtpRequest,
+	type VerifyOtpRequest,
 } from '@vion/api/shared/utils';
 
 @Injectable()
@@ -23,5 +24,9 @@ export class AuthClientGrpc implements OnModuleInit {
 
 	verifyOtp(request: VerifyOtpRequest) {
 		return this.authService.verifyOtp(request);
+	}
+
+	refresh(request: RefreshRequest) {
+		return this.authService.refresh(request);
 	}
 }
