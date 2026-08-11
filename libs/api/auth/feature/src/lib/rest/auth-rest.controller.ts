@@ -10,7 +10,7 @@ import {
 import { ConfigService } from '@nestjs/config';
 import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 
-import { Protected } from '@vion/api-shared/auth-guards';
+import { CurrentUser, Protected } from '@vion/api-shared/auth-guards';
 import { AuthClientGrpc } from '@vion/api/auth/data-access';
 import { SendOtpRequest, VerifyOtpRequest } from '@vion/api/contracts';
 import { HttpStatusCode } from 'axios';
@@ -114,9 +114,9 @@ export class AuthRestController {
 	@ApiBearerAuth()
 	@Protected()
 	@Get('account')
-	async getAccount() {
+	async getAccount(@CurrentUser() userId: string) {
 		return {
-			message: 'OK',
+			id: userId,
 		};
 	}
 }
