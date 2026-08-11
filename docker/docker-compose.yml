@@ -48,7 +48,8 @@ services:
     ports:
       - "${PGADMIN_PORT}:80"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
     volumes:
       - pgadmin_data:/var/lib/pgadmin
     networks:
