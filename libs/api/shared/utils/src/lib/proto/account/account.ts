@@ -8,8 +8,6 @@
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
 
-export const protobufPackage = "account.v1";
-
 export enum Role {
   USER = 0,
   ADMIN = 1,
@@ -28,8 +26,6 @@ export interface GetAccountResponse {
   isEmailVerified: boolean;
   role: Role;
 }
-
-export const ACCOUNT_V1_PACKAGE_NAME = "account.v1";
 
 export interface AccountServiceClient {
   getAccount(request: GetAccountRequest): Observable<GetAccountResponse>;

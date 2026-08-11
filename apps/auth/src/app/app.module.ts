@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { PassportModule } from '@vion/api-shared/auth-passport';
+import { AccountFeatureModule } from '@vion/api/account/feature';
 import { AuthFeatureModule } from '@vion/api/auth/feature';
 import {
 	databaseEnv,
@@ -20,6 +21,7 @@ import { getPassportConfig } from '../loaders';
 			load: [databaseEnv, grpcEnv, passportEnv, redisEnv],
 		}),
 		AuthFeatureModule,
+		AccountFeatureModule,
 		PassportModule.registerAsync({
 			useFactory: getPassportConfig,
 			inject: [ConfigService],

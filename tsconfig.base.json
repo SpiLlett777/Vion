@@ -26,7 +26,13 @@
 			"@vion/api-shared/auth-passport": [
 				"./libs/api/shared/auth-passport/src/index.ts"
 			],
-			"@vion/api-shared/auth-guards": ["./libs/api/shared/auth-guards/src/index.ts"]
+			"@vion/api-shared/auth-guards": [
+				"./libs/api/shared/auth-guards/src/index.ts"
+			],
+			"@vion/api/account/data-access": [
+				"./libs/api/account/data-access/src/index.ts"
+			],
+			"@vion/api/account/feature": ["./libs/api/account/feature/src/index.ts"]
 		}
 	},
 	"exclude": ["node_modules", "tmp"]

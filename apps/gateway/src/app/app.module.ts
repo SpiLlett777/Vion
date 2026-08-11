@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 
 import { PassportModule } from '@vion/api-shared/auth-passport';
+import { AccountClientGrpc } from '@vion/api/account/data-access';
 import { AuthClientGrpc } from '@vion/api/auth/data-access';
 import { AuthRestController } from '@vion/api/auth/feature';
 import { PROTO_PATHS } from '@vion/api/shared/utils';
@@ -32,13 +33,28 @@ import { AppService } from './app.service';
 				inject: [ConfigService],
 			},
 		]),
+		ClientsModule.registerAsync([
+			{
+				name: 'ACCOUNT_PACKAGE',
+				imports: [ConfigModule],
+				useFactory: (configService: ConfigService) => ({
+					transport: Transport.GRPC,
+					options: {
+						package: 'account.v1',
+						protoPath: PROTO_PATHS.ACCOUNT,
+						url: configService.getOrThrow<string>('AUTH_GRPC_URL'),
+					},
+				}),
+				inject: [ConfigService],
+			},
+		]),
 		PassportModule.registerAsync({
 			useFactory: getPassportConfig,
 			inject: [ConfigService],
 		}),
 	],
 	controllers: [AppController, AuthRestController],
-	providers: [AppService, AuthClientGrpc],
-	exports: [AuthClientGrpc],
+	providers: [AppService, AuthClientGrpc, AccountClientGrpc],
+	exports: [AuthClientGrpc, AccountClientGrpc],
 })
 export class AppModule {}

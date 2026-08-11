@@ -17,6 +17,12 @@ import { HttpStatusCode } from 'axios';
 import type { Request, Response } from 'express';
 import { lastValueFrom } from 'rxjs';
 
+enum Role {
+	USER = 0,
+	ADMIN = 1,
+	UNRECOGNIZED = -1,
+}
+
 @Controller('auth')
 export class AuthRestController {
 	constructor(
@@ -112,7 +118,7 @@ export class AuthRestController {
 	}
 
 	@ApiBearerAuth()
-	@Protected()
+	@Protected(Role.ADMIN)
 	@Get('account')
 	async getAccount(@CurrentUser() userId: string) {
 		return {
