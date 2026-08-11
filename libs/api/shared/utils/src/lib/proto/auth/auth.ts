@@ -8,8 +8,6 @@
 import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
 import { Observable } from "rxjs";
 
-export const protobufPackage = "auth.v1";
-
 export interface SendOtpRequest {
   identifier: string;
   type: string;
@@ -38,8 +36,6 @@ export interface RefreshResponse {
   accessToken: string;
   refreshToken: string;
 }
-
-export const AUTH_V1_PACKAGE_NAME = "auth.v1";
 
 export interface AuthServiceClient {
   sendOtp(request: SendOtpRequest): Observable<SendOtpResponse>;

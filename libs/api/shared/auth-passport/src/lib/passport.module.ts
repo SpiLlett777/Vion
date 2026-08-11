@@ -1,6 +1,6 @@
 import { type DynamicModule, Global, Module } from '@nestjs/common';
 
-import { PassportService } from '@vion/api/auth-passport';
+import { PassportService } from '@vion/api-shared/auth-passport';
 
 import { PASSPORT_OPTIONS } from './consts';
 import type { PassportAsyncOptions, PassportOptions } from './interfaces';

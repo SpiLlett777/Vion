@@ -1,12 +1,27 @@
-import { Body, Controller, HttpCode, Post, Req, Res } from '@nestjs/common';
+import {
+	Body,
+	Controller,
+	Get,
+	HttpCode,
+	Post,
+	Req,
+	Res,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { ApiOperation } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 
+import { CurrentUser, Protected } from '@vion/api-shared/auth-guards';
+import { AuthClientGrpc } from '@vion/api/auth/data-access';
 import { SendOtpRequest, VerifyOtpRequest } from '@vion/api/contracts';
-import { AuthClientGrpc } from '@vion/auth/data-access';
 import { HttpStatusCode } from 'axios';
 import type { Request, Response } from 'express';
 import { lastValueFrom } from 'rxjs';
+
+enum Role {
+	USER = 0,
+	ADMIN = 1,
+	UNRECOGNIZED = -1,
+}
 
 @Controller('auth')
 export class AuthRestController {
@@ -100,5 +115,14 @@ export class AuthRestController {
 		});
 
 		return { ok: true };
+	}
+
+	@ApiBearerAuth()
+	@Protected(Role.ADMIN)
+	@Get('account')
+	async getAccount(@CurrentUser() userId: string) {
+		return {
+			id: userId,
+		};
 	}
 }

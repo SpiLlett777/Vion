@@ -1,6 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 
-import { PassportOptions } from '@vion/api/auth-passport';
+import { PassportOptions } from '@vion/api-shared/auth-passport';
 import type { AllConfigs } from '@vion/api/contracts';
 
 export function getPassportConfig(

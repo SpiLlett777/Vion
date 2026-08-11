@@ -1,6 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { GrpcMethod } from '@nestjs/microservices';
 
+import { AuthService } from '@vion/api/auth/data-access';
 import type {
 	RefreshRequest,
 	RefreshResponse,
@@ -9,7 +10,6 @@ import type {
 	VerifyOtpRequest,
 	VerifyOtpResponse,
 } from '@vion/api/shared/utils';
-import { AuthService } from '@vion/auth/data-access';
 
 @Controller()
 export class AuthGrpcController {

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { AuthDataAccessModule } from '@vion/auth/data-access';
+import { AuthDataAccessModule } from '@vion/api/auth/data-access';
 
 import { AuthGrpcController } from './grpc/auth-grpc.controller';
 
