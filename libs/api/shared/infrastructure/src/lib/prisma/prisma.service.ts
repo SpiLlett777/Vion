@@ -9,7 +9,7 @@ import { ConfigService } from '@nestjs/config';
 import { PrismaPg } from '@prisma/adapter-pg';
 import type { AllConfigs } from '@vion/api/contracts';
 
-import { PrismaClient } from '../../prisma/generated/client';
+import { PrismaClient } from '../../../../../auth/data-access/src/lib/prisma/generated/client';
 
 @Injectable()
 export class PrismaService

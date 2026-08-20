@@ -1,6 +1,7 @@
 
 import {Role} from '@prisma/client'
 import {ApiProperty} from '@nestjs/swagger'
+import {PendingContactChange} from './pendingContactChange.entity'
 
 
 export class Account {
@@ -13,6 +14,7 @@ isEmailVerified: boolean ;
   enum: Role,
 })
 role: Role ;
+pendingContactChanges?: PendingContactChange[] ;
 @ApiProperty({
   type: `string`,
   format: `date-time`,
