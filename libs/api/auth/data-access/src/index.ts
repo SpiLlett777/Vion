@@ -4,4 +4,3 @@ export { AuthClientGrpc } from './lib/auth/auth-client.grpc';
 export { OtpService } from './lib/otp/otp.service';
 
 export * from './lib/prisma';
-export * from './lib/infrastructure';

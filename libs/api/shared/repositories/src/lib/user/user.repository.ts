@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 
+import { PrismaService } from '@vion/api-shared/infrastructure';
 import {
 	type Account,
 	type AccountUpdateInput,
-	PrismaService,
 } from '@vion/api/auth/data-access';
 
 @Injectable()

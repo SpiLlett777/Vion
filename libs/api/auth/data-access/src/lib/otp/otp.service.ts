@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { RpcException } from '@nestjs/microservices';
 
+import { RedisService } from '@vion/api-shared/infrastructure';
 import { RpcStatus } from '@vion/api/shared/utils';
 import { createHash } from 'node:crypto';
-
-import { RedisService } from '../infrastructure/redis/redis.service';
 
 @Injectable()
 export class OtpService {

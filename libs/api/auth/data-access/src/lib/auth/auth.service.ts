@@ -60,7 +60,7 @@ export class AuthService {
 			type as 'phone' | 'email'
 		);
 
-		console.debug(`CODE: ${code}`);
+		console.debug(`CODE: ${code.code}`);
 
 		return { ok: true };
 	}

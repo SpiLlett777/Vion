@@ -35,6 +35,9 @@
 			"@vion/api/account/feature": ["./libs/api/account/feature/src/index.ts"],
 			"@vion/api-shared/repositories": [
 				"./libs/api/shared/repositories/src/index.ts"
+			],
+			"@vion/api-shared/infrastructure": [
+				"./libs/api/shared/infrastructure/src/index.ts"
 			]
 		}
 	},

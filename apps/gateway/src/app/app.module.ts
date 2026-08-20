@@ -4,6 +4,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 
 import { PassportModule } from '@vion/api-shared/auth-passport';
 import { AccountClientGrpc } from '@vion/api/account/data-access';
+import { AccountRestController } from '@vion/api/account/feature';
 import { AuthClientGrpc } from '@vion/api/auth/data-access';
 import { AuthRestController } from '@vion/api/auth/feature';
 import { PROTO_PATHS } from '@vion/api/shared/utils';
@@ -53,7 +54,7 @@ import { AppService } from './app.service';
 			inject: [ConfigService],
 		}),
 	],
-	controllers: [AppController, AuthRestController],
+	controllers: [AppController, AuthRestController, AccountRestController],
 	providers: [AppService, AuthClientGrpc, AccountClientGrpc],
 	exports: [AuthClientGrpc, AccountClientGrpc],
 })
